@@ -21,12 +21,12 @@ public class SeekWorkFragment extends BaseFragment implements OnMapReadyCallback
     MapView mapView;
 
     @Override
-    int contentLayout() {
+    protected int contentLayout() {
         return R.layout.fragment_seek_work;
     }
 
     @Override
-    int contentTitle() {
+    protected int contentTitle() {
         return R.string.find_work;
     }
 

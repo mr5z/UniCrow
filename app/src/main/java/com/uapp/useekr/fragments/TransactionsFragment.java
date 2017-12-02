@@ -34,12 +34,12 @@ public class TransactionsFragment extends BaseFragment
     }
 
     @Override
-    int contentLayout() {
+    protected int contentLayout() {
         return R.layout.fragment_useekr_transact;
     }
 
     @Override
-    int contentTitle() {
+    protected int contentTitle() {
         return R.string.transactions;
     }
 
