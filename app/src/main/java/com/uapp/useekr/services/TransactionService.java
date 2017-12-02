@@ -28,4 +28,9 @@ public class TransactionService extends BaseService<Transaction> {
         return getList(action("list"),
                 identity(userId));
     }
+
+    public PagedResult<Transaction> createTransaction(long userId, Transaction transaction) {
+        return postObject(action("createwhole"),
+                identity(userId));
+    }
 }

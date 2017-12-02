@@ -44,7 +44,7 @@ public class TransactionsFragment extends BaseFragment
     }
 
     @Override
-    void initialize() {
+    protected void initialize() {
         transactionTask().execute();
     }
 

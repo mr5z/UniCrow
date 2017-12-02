@@ -58,6 +58,16 @@ public abstract class BaseService<T> {
         }
     }
 
+    PagedResult<T> postObject(String formContent, HttpUtil.KeyValue ...params) {
+        try {
+            String rawResponse = HttpUtil.post(servicePath, formContent, params);
+            return serializeObject(rawResponse);
+        }
+        catch (Exception e) {
+            return new PagedResult<>(e.getMessage());
+        }
+    }
+
     private PagedResult<T> serializeObject(String rawResponse) throws JSONException, IllegalStateException {
         JSONObject jsonResponse = new JSONObject(rawResponse);
         String status = jsonResponse.getString("status");

@@ -25,4 +25,13 @@
     <string name="create_transaction">Create Transaction</string>
     <string name="next">Next</string>
     <string name="basic_info">Basic Info</string>
+    <string name="account_number">Account Number</string>
+    <string name="task_title">Task Title</string>
+    <string name="add_task">Add Task</string>
+    <string name="milestones">Milestones</string>
+    <string name="amount">Amount</string>
+    <string name="done">Done</string>
+    <string name="payment_details">Payment Details</string>
+    <string name="proceed">Proceed</string>
+    <string name="confirm_create_transaction">Create Transaction?</string>
 </resources>

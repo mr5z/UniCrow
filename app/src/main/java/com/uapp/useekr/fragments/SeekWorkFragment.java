@@ -31,7 +31,7 @@ public class SeekWorkFragment extends BaseFragment implements OnMapReadyCallback
     }
 
     @Override
-    void initialize() {
+    protected void initialize() {
         mapView.getMapAsync(this);
     }
 

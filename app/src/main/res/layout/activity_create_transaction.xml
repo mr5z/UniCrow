@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <FrameLayout
-        android:id="@+id/create_transaction_content"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <com.repsly.library.timelineview.TimelineView
+            android:id="@+id/timeline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:lineColor="@color/colorPrimary"
+            app:lineOrientation="horizontal"
+            app:lineSize="4dp"
+            app:markerActive="false"
+            app:markerActiveColor="@color/colorAccent"
+            app:markerActiveStrokeWidth="8dp"
+            app:markerColor="@color/colorPrimary"
+            app:markerSize="20dp"
+            app:markerStrokeWidth="2dp"
+            app:markerTextColor="@android:color/white"
+            app:markerTextSize="10sp"/>
+
+        <FrameLayout
+            android:id="@+id/create_transaction_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -81,7 +81,7 @@ public abstract class BaseFragment extends Fragment {
         initialize();
     }
 
-    void initialize() { }
+    protected void initialize() { }
 
     @LayoutRes
     protected abstract int contentLayout();
