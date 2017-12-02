@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.uapp.useekr.utils.Debug;
 import com.uapp.useekr.utils.HttpUtil;
 
 import org.json.JSONException;
@@ -58,9 +59,11 @@ public abstract class BaseService<T> {
         }
     }
 
-    PagedResult<T> postObject(String formContent, HttpUtil.KeyValue ...params) {
+    PagedResult<T> postObject(T formContent, HttpUtil.KeyValue ...params) {
         try {
-            String rawResponse = HttpUtil.post(servicePath, formContent, params);
+            String json = stringifyObject(formContent);
+            String rawResponse = HttpUtil.post(servicePath, json, params);
+            Debug.log("from: %s, response: %s", servicePath, rawResponse);
             return serializeObject(rawResponse);
         }
         catch (Exception e) {
@@ -97,6 +100,19 @@ public abstract class BaseService<T> {
 
     HttpUtil.KeyValue action(String value) {
         return HttpUtil.KeyValue.make("action", value);
+    }
+
+    private String stringifyObject(T object) {
+        Gson gson = new Gson();
+        Type type = getType();
+        return gson.toJson(object, type);
+    }
+
+    private String stringifyList(List<T> object) {
+        Gson gson = new Gson();
+        Class<T> typeOfT = getGenericTypeClass();
+        Type type = TypeToken.getParameterized(List.class, typeOfT).getType();
+        return gson.toJson(object, type);
     }
 
     @NonNull

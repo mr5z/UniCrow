@@ -3,11 +3,16 @@ package com.uapp.useekr.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.uapp.useekr.R;
+import com.uapp.useekr.adapters.TimelineAdapter;
+import com.uapp.useekr.models.Task;
 import com.uapp.useekr.models.Transaction;
+
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -33,6 +38,16 @@ public class TransactionDetailActivity extends BaseActivity {
         Intent intent = getIntent();
         Transaction transaction = (Transaction)
                 intent.getSerializableExtra("transaction");
-        txtTransactionTitle.setText(transaction.getTitle());
+
+        List<Task> taskList = transaction.getTaskList();
+
+        if (taskList == null || taskList.isEmpty()) {
+            return;
+        }
+
+        TimelineAdapter adapter = new TimelineAdapter(taskList, LinearLayoutManager.VERTICAL);
+
+        detailList.setLayoutManager(new LinearLayoutManager(this));
+        detailList.setAdapter(adapter);
     }
 }

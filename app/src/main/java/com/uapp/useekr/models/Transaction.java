@@ -11,6 +11,83 @@ import java.util.List;
 
 public class Transaction implements Serializable {
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public enum TransactionStatus {
+        @SerializedName("0")
+        PENDING,
+        @SerializedName("1")
+        ON_GOING,
+        @SerializedName("2")
+        COMPLETED,
+        @SerializedName("3")
+        CANCELLED
+    }
+
+    private long id;
+
+    private String title;
+
+    private String description;
+
+    @SerializedName("status")
+    private TransactionStatus transactionStatus;
+
+    private double amount;
+
+    @SerializedName("acct_no")
+    private String accountNumber;
+
+    @SerializedName("rec_firstname")
+    private String recFirstName;
+
+    @SerializedName("rec_lastname")
+    private String recLastName;
+
+    @SerializedName("rec_email")
+    private String recEmail;
+
+    @SerializedName("tasks")
+    private List<Task> taskList;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public TransactionStatus getTransactionStatus() {
+        return transactionStatus;
+    }
+
+    public void setTransactionStatus(TransactionStatus transactionStatus) {
+        this.transactionStatus = transactionStatus;
+    }
+
+    public List<Task> getTaskList() {
+        return taskList;
+    }
+
+    public void setTaskList(List<Task> taskList) {
+        this.taskList = taskList;
+    }
+
     public double getAmount() {
         return amount;
     }
@@ -49,67 +126,5 @@ public class Transaction implements Serializable {
 
     public void setRecEmail(String recEmail) {
         this.recEmail = recEmail;
-    }
-
-    public enum TransactionStatus {
-        @SerializedName("0")
-        PENDING,
-        @SerializedName("1")
-        ON_GOING,
-        @SerializedName("2")
-        COMPLETED,
-        @SerializedName("3")
-        CANCELLED
-    }
-
-    private long id;
-
-    private String title;
-
-    @SerializedName("status")
-    private TransactionStatus transactionStatus;
-
-    private double amount;
-
-    private String accountNumber;
-
-    private String recFirstName;
-
-    private String recLastName;
-
-    private String recEmail;
-
-    private List<Task> taskList;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public TransactionStatus getTransactionStatus() {
-        return transactionStatus;
-    }
-
-    public void setTransactionStatus(TransactionStatus transactionStatus) {
-        this.transactionStatus = transactionStatus;
-    }
-
-    public List<Task> getTaskList() {
-        return taskList;
-    }
-
-    public void setTaskList(List<Task> taskList) {
-        this.taskList = taskList;
     }
 }

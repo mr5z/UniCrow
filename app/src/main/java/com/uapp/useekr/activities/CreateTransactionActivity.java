@@ -1,5 +1,6 @@
 package com.uapp.useekr.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.Menu;
@@ -26,6 +27,8 @@ public class CreateTransactionActivity extends BaseActivity implements BaseActiv
 
     private static final int MAX_PAGE = 3;
 
+    private Transaction transaction = new Transaction();
+
     private TaskWrapper<PagedResult<Transaction>> transactionTask() {
         return new TaskWrapper<>(this);
     }
@@ -44,6 +47,9 @@ public class CreateTransactionActivity extends BaseActivity implements BaseActiv
     void initialize(@Nullable Bundle savedInstanceState) {
         showTransactionDetails();
         updateTimelineNumber(currentPage);
+        Intent intent = new Intent();
+        intent.putExtra("transaction", transaction);
+        setIntent(intent);
     }
 
     @Override
@@ -78,13 +84,19 @@ public class CreateTransactionActivity extends BaseActivity implements BaseActiv
                 break;
         }
 
+        //noinspection SimplifiableIfStatement
+        if (currentPage == 0) {
+            return super.onOptionsItemSelected(item);
+        }
+
         updateTimelineNumber(currentPage);
 
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     void pushContent(BaseFragment fragment) {
         currentPage = Math.min(currentPage + 1, MAX_PAGE);
+        fragment.setRetainInstance(true);
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.create_transaction_content, fragment)
                 .addToBackStack(null)
@@ -128,8 +140,8 @@ public class CreateTransactionActivity extends BaseActivity implements BaseActiv
 
     @Override
     public PagedResult<Transaction> onTaskExecute() {
-        Transaction transaction = new Transaction();
-        return TransactionService.instance().createTransaction(transaction);
+        long userId = settings().getUserId();
+        return TransactionService.instance().createTransaction(userId, transaction);
     }
 
     @Override

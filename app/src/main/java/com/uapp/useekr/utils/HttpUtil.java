@@ -64,12 +64,10 @@ public class HttpUtil {
     }
 
     public static String post(String url, String formContent, KeyValue... params) throws Exception {
-        FormBody requestBody = toFormBody(params);
         RequestBody body = RequestBody.create(JSON_CONTENT_TYPE, formContent);
         Request request = requestBuilder()
-                .url(url)
-                .method("POST", body)
-                .post(requestBody)
+                .url(String.format("%s?%s", url, queryBuilder(params)))
+                .post(body)
                 .build();
         return executeResponse(request);
     }

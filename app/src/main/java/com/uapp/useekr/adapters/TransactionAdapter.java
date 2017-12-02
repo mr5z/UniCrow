@@ -52,7 +52,6 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     public void onBindViewHolder(ViewHolder holder, int position) {
         Transaction transaction = dataSet.get(position);
         holder.itemView.setTag(position);
-//        holder.itemView.setOnClickListener(this);
         holder.txtTitle.setText(transaction.getTitle());
     }
 

@@ -75,7 +75,9 @@ public class LoginActivity extends BaseActivity
 
     private void showMainActivity(User user) {
         startSession(user.getId());
-        startActivity(new Intent(this, MainActivity.class));
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("user", user);
+        startActivity(intent);
         finish();
     }
 }

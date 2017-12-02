@@ -1,10 +1,12 @@
 package com.uapp.useekr.models;
 
+import java.io.Serializable;
+
 /**
  * Created by root on 12/2/17.
  */
 
-public class User {
+public class User implements Serializable {
 
     private long id;
 

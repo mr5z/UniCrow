@@ -30,7 +30,7 @@ public class TransactionService extends BaseService<Transaction> {
     }
 
     public PagedResult<Transaction> createTransaction(long userId, Transaction transaction) {
-        return postObject(action("createwhole"),
+        return postObject(transaction, action("jcreatewhole"),
                 identity(userId));
     }
 }
