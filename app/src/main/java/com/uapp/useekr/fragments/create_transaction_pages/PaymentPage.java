@@ -44,9 +44,11 @@ public class PaymentPage extends BasePage {
                 Intent intent = getActivity().getIntent();
                 Transaction transaction = (Transaction) intent.getSerializableExtra("transaction");
                 String amount = charSequence.toString();
-                transaction.setAmount(Double.parseDouble(amount));
-                intent.putExtra("transaction", transaction);
-                getActivity().setIntent(intent);
+                if (!amount.isEmpty()) {
+                    transaction.setAmount(Double.parseDouble(amount));
+                    intent.putExtra("transaction", transaction);
+                    getActivity().setIntent(intent);
+                }
             }
 
             @Override
@@ -59,7 +61,7 @@ public class PaymentPage extends BasePage {
     void updateTransaction(View view, Transaction transaction) {
         TextInputEditText editAmount = view.findViewById(R.id.edit_transaction_create_payment_amount);
         String amount = editAmount.getText().toString();
-        if (amount.isEmpty()) {
+        if (!amount.isEmpty()) {
             transaction.setAmount(Double.parseDouble(amount));
         }
     }

@@ -1,5 +1,7 @@
 package com.uapp.useekr.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
@@ -10,7 +12,13 @@ public class User implements Serializable {
 
     private long id;
 
-    private String displayName;
+    private String email;
+
+    @SerializedName("firstname")
+    private String firstName;
+
+    @SerializedName("lastname")
+    private String lastName;
 
     public long getId() {
         return id;
@@ -21,10 +29,22 @@ public class User implements Serializable {
     }
 
     public String getDisplayName() {
-        return displayName;
+        return firstName + " " + lastName;
     }
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }

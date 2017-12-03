@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import com.uapp.useekr.R;
 import com.uapp.useekr.fragments.BaseFragment;
 import com.uapp.useekr.fragments.TransactionsFragment;
+import com.uapp.useekr.fragments.UnderConstructionFragment;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -31,6 +32,11 @@ public class MainActivity extends BaseActivity
             return;
         }
         configureNavigationDrawer();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         showUseekrTransact();
     }
 
@@ -108,12 +114,12 @@ public class MainActivity extends BaseActivity
             case R.id.nav_useekr_transact:
                 showUseekrTransact();
                 break;
-            case R.id.nav_seek_work:
-
-                break;
             case R.id.nav_logout:
                 showLoginActivity();
                 break;
+            default:
+            showUnderConstruction();
+            break;
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -121,7 +127,7 @@ public class MainActivity extends BaseActivity
         return true;
     }
 
-    void changeContent(BaseFragment fragment) {
+    void pushContent(BaseFragment fragment) {
         getSupportFragmentManager().beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .addToBackStack(null)
@@ -129,6 +135,10 @@ public class MainActivity extends BaseActivity
     }
 
     void showUseekrTransact() {
-        changeContent(new TransactionsFragment());
+        pushContent(new TransactionsFragment());
+    }
+
+    private void showUnderConstruction() {
+        pushContent(new UnderConstructionFragment());
     }
 }

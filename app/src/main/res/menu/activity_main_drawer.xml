@@ -6,19 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_useekr_transact"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/useekr_transact" />
+            android:icon="@drawable/ic_transactions"
+            android:title="@string/transaction" />
         <item
             android:id="@+id/nav_seek_work"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_find_work"
             android:title="@string/find_work" />
         <item
             android:id="@+id/nav_seek_atm"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_find_atm"
             android:title="@string/seek_atm" />
         <item
             android:id="@+id/nav_post_work"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_post_work"
             android:title="@string/post_work" />
         <item
             android:id="@+id/nav_notifications"

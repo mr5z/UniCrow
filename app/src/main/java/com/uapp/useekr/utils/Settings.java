@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.uapp.useekr.models.User;
+
 /**
  * Created by root on 12/2/17.
  */

@@ -12,6 +12,7 @@ import com.uapp.useekr.adapters.TimelineAdapter;
 import com.uapp.useekr.models.Task;
 import com.uapp.useekr.models.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -21,9 +22,6 @@ import butterknife.BindView;
  */
 
 public class TransactionDetailActivity extends BaseActivity {
-
-    @BindView(R.id.transaction_detail_title)
-    TextView txtTransactionTitle;
 
     @BindView(R.id.transaction_detail_list)
     RecyclerView detailList;
@@ -40,6 +38,13 @@ public class TransactionDetailActivity extends BaseActivity {
                 intent.getSerializableExtra("transaction");
 
         List<Task> taskList = transaction.getTaskList();
+
+//        taskList = new ArrayList<Task>() {{
+//            add(new Task() {{ setTitle("Task 1"); }});
+//            add(new Task() {{ setTitle("Task 2"); }});
+//            add(new Task() {{ setTitle("Task 3"); }});
+//            add(new Task() {{ setTitle("Task 4"); }});
+//        }};
 
         if (taskList == null || taskList.isEmpty()) {
             return;

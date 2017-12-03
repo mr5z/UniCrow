@@ -32,6 +32,7 @@ public abstract class BaseService<T> {
     PagedResult<T> getObject(HttpUtil.KeyValue ...params) {
         try {
             String rawResponse = HttpUtil.get(servicePath, params);
+            Debug.log("from: %s, response: %s", servicePath, rawResponse);
             return serializeObject(rawResponse);
         }
         catch (Exception e) {
@@ -42,6 +43,7 @@ public abstract class BaseService<T> {
     PagedResult<List<T>> getList(HttpUtil.KeyValue ...params) {
         try {
             String rawResponse = HttpUtil.get(servicePath, params);
+            Debug.log("from: %s, response: %s", servicePath, rawResponse);
             return serializeList(rawResponse);
         }
         catch (Exception e) {
@@ -52,6 +54,7 @@ public abstract class BaseService<T> {
     PagedResult<T> postObject(HttpUtil.KeyValue ...params) {
         try {
             String rawResponse = HttpUtil.post(servicePath, params);
+            Debug.log("from: %s, response: %s", servicePath, rawResponse);
             return serializeObject(rawResponse);
         }
         catch (Exception e) {

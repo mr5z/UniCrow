@@ -3,7 +3,10 @@ package com.uapp.useekr.models;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by root on 12/2/17.
@@ -11,12 +14,30 @@ import java.util.List;
 
 public class Transaction implements Serializable {
 
+    private static SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyy", Locale.getDefault());
+
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public long getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(long dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public long getDateUpdated() {
+        return dateUpdated;
+    }
+
+    public void setDateUpdated(long dateUpdated) {
+        this.dateUpdated = dateUpdated;
     }
 
     public enum TransactionStatus {
@@ -40,6 +61,12 @@ public class Transaction implements Serializable {
     private TransactionStatus transactionStatus;
 
     private double amount;
+
+    @SerializedName("created_at")
+    private long dateCreated;
+
+    @SerializedName("updated_at")
+    private long dateUpdated;
 
     @SerializedName("acct_no")
     private String accountNumber;
@@ -126,5 +153,9 @@ public class Transaction implements Serializable {
 
     public void setRecEmail(String recEmail) {
         this.recEmail = recEmail;
+    }
+
+    public String getFormattedDateCreated() {
+        return sdf.format(new Date(dateCreated));
     }
 }

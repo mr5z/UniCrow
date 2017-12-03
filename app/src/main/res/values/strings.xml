@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">USeekr</string>
+    <string name="app_name">UniCrow</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -34,4 +34,9 @@
     <string name="payment_details">Payment Details</string>
     <string name="proceed">Proceed</string>
     <string name="confirm_create_transaction">Create Transaction?</string>
+    <string name="completed">Completed</string>
+    <string name="transaction">Transaction</string>
+    <string name="mark_as_completed">Mark as Completed</string>
+    <string name="pay_service_transactions_fast_and_secured">pay service transactions fast and secured.</string>
+    <string name="under_construction">Under Construction</string>
 </resources>

@@ -12,6 +12,8 @@
             android:id="@+id/edit_transaction_create_payment_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textAlignment="textEnd"
             android:hint="@string/amount"
             android:inputType="numberDecimal"
             android:maxLines="1" />

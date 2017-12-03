@@ -32,7 +32,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
     @Override
     public int getItemViewType(int position) {
         if (orientation == LinearLayoutManager.VERTICAL) {
-            return R.layout.item_vertical;
+            return R.layout.task_detail_row;
         } else {
             return R.layout.item_horizontal;
         }
@@ -49,7 +49,6 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
         Task task = dataSet.get(position);
         holder.txtTitle.setText(task.getTitle());
-//        holder.txtDescription.setText(task.getDescription());
         holder.timelineView.setLineType(getLineType(position));
         holder.timelineView.setNumber(position);
         // Make first and last markers stroked, others filled
@@ -96,12 +95,10 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtTitle;
-        TextView txtDescription;
         TimelineView timelineView;
         public ViewHolder(View itemView) {
             super(itemView);
             txtTitle = itemView.findViewById(R.id.transaction_detail_title);
-            txtDescription = itemView.findViewById(R.id.transaction_detail_description);
             timelineView = itemView.findViewById(R.id.timeline);
         }
     }

@@ -34,17 +34,21 @@ public class BasicInfoPage extends BasePage {
                 view.findViewById(R.id.edit_transaction_create_firstname);
         TextInputEditText editLastName =
                 view.findViewById(R.id.edit_transaction_create_lastname);
+        TextInputEditText editEmailAddress =
+                view.findViewById(R.id.edit_transaction_create_email);
         TextInputEditText editAccountNumber =
                 view.findViewById(R.id.edit_transaction_create_account_number);
 
         String firstName = editFirstName.getText().toString();
         String lastName = editLastName.getText().toString();
+        String emailAddress = editEmailAddress.getText().toString();
         String accountNumber = editAccountNumber.getText().toString();
 
         Intent intent = getActivity().getIntent();
         Transaction transaction = (Transaction) intent.getSerializableExtra("transaction");
         transaction.setRecFirstName(firstName);
         transaction.setRecLastName(lastName);
+        transaction.setRecEmail(emailAddress);
         transaction.setAccountNumber(accountNumber);
         intent.putExtra("transaction", transaction);
     }
@@ -55,15 +59,19 @@ public class BasicInfoPage extends BasePage {
                 view.findViewById(R.id.edit_transaction_create_firstname);
         TextInputEditText editLastName =
                 view.findViewById(R.id.edit_transaction_create_lastname);
+        TextInputEditText editEmailAddress =
+                view.findViewById(R.id.edit_transaction_create_email);
         TextInputEditText editAccountNumber =
                 view.findViewById(R.id.edit_transaction_create_account_number);
 
         String firstName = editFirstName.getText().toString();
         String lastName = editLastName.getText().toString();
+        String emailAddress = editEmailAddress.getText().toString();
         String accountNumber = editAccountNumber.getText().toString();
 
         transaction.setRecFirstName(firstName);
         transaction.setRecLastName(lastName);
+        transaction.setRecEmail(emailAddress);
         transaction.setAccountNumber(accountNumber);
     }
 
