@@ -79,7 +79,7 @@ public abstract class BaseService<T> {
         String status = jsonResponse.getString("status");
         if (status.equals("success")) {
             T data = toObject(jsonResponse.getString("data"));
-            return new PagedResult<>(PagedResult.Status.SUCCESS, data, 1);
+            return new PagedResult<>(data, 1);
         } else {
             return new PagedResult<>(jsonResponse.getString("data"));
         }
@@ -91,7 +91,7 @@ public abstract class BaseService<T> {
         if (status.equals("success")) {
             List<T> data = toList(jsonResponse.getString("data"));
             long totalCount = jsonResponse.getLong("totalCount");
-            return new PagedResult<>(PagedResult.Status.SUCCESS, data, totalCount);
+            return new PagedResult<>(data, totalCount);
         } else {
             return new PagedResult<>(jsonResponse.getString("data"));
         }

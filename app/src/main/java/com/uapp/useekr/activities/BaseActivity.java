@@ -8,13 +8,11 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.uapp.useekr.R;
-import com.uapp.useekr.fragments.BaseFragment;
 import com.uapp.useekr.utils.Settings;
 import com.uapp.useekr.utils.ViewUtils;
 
@@ -35,7 +33,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     ViewUtils utils() {
-        return ViewUtils.instance(this);
+        return new ViewUtils(this);
     }
 
     private Snackbar _snackbar;

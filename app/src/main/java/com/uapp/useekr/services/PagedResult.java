@@ -19,15 +19,18 @@ public class PagedResult<T> {
     }
 
     @SerializedName("status")
-    public final Status status;
+    private final Status status;
+
     @NonNull
     public final T data;
+
     public final long totalCount;
+
     @Nullable
     public final String errorMessage;
 
-    public PagedResult(Status status, @NonNull T data, long totalCount) {
-        this.status = status;
+    public PagedResult(@NonNull T data, long totalCount) {
+        this.status = Status.SUCCESS;
         this.data = data;
         this.totalCount = totalCount;
         this.errorMessage = null;

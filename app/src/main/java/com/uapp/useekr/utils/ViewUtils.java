@@ -10,17 +10,9 @@ import android.util.TypedValue;
 
 public class ViewUtils {
 
-    private static ViewUtils _instance;
-    public static ViewUtils instance(Context context) {
-        if (_instance == null) {
-            _instance = new ViewUtils(context);
-        }
-        return _instance;
-    }
-
     private Context context;
 
-    private ViewUtils(Context context) {
+    public ViewUtils(Context context) {
         this.context = context;
     }
 
